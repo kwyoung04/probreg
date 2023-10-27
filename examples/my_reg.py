@@ -86,9 +86,9 @@ class reg(savePly):
 
     
     def fillterreg(self, tf_param = {'rot': np.identity(3), 't': np.zeros(3)}): 
-        tf_res, _, _ = filterreg.registration_filterreg(source, target, update_sigma2 = True, w = 0.3, tol = 0.1, tf_init_params = tf_param)
-        tf_param['rot'], tf_param['t'] = tf_res.rot, tf_res.t
-        tf_res, _, _ = filterreg.registration_filterreg(source, target, update_sigma2 = True, w = 0.02, tol = 0.0001, tf_init_params = tf_param) #callbacks=self.cbs)        
+        tf_res, _, _ = filterreg.registration_filterreg(source, target, maxiter=32, update_sigma2 = True, w = 0.0000303556673416789, tol = 0.000486636460597193, tf_init_params = tf_param)
+        #tf_param['rot'], tf_param['t'] = tf_res.rot, tf_res.t
+        #tf_res, _, _ = filterreg.registration_filterreg(source, target, update_sigma2 = True, w = 0.02, tol = 0.0001, tf_init_params = tf_param) #callbacks=self.cbs)        
      
         return tf_res.rot, tf_res.t
 
